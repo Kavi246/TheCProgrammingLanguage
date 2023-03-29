@@ -5,10 +5,12 @@
 int main() {
 
     int c = 0;
+    
     int charList[127];
     for(int i = 0; i < 127; ++i) {
         charList[i] = 0;
     }
+
     while((c = getchar()) != EOF) {
         ++charList[c];
     }

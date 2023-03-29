@@ -11,10 +11,14 @@ int main() {
     c = charCount = 0;
     int wordLengths[15];
 
+    //initialise all elements to 0.
     for(int i = 0; i < 15; ++i) {
         wordLengths[i] = 0;
     }
 
+    //use states to check if currently in a word and count the characters in it.
+    //when exiting a word it increments the corresponding index in the array.
+    //since array index increase linearlly, they can represent the lengths of words.
     state = OUT;
     while((c = getchar()) != EOF) {
         if(state == OUT && c != ' ' && c != '\t' && c != '\n') {
@@ -33,6 +37,8 @@ int main() {
         }
     }
     
+    //loop through each word length category (or array index)
+    //then represent their respective count value visually by using hashes to create a bar.
     for(int i = 1; i < 15; ++i) {
         printf("\n%d: ", i);
         for(int j = 0; j < wordLengths[i]; j++) {
@@ -40,6 +46,7 @@ int main() {
         }
     }
 
+    //return horizontal histogram.
     return 0;
     
 }
